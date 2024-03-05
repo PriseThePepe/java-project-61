@@ -1,5 +1,8 @@
 plugins {
     id("java")
+    id("se.patrikerdes.use-latest-versions") version "0.2.18"/*gradle use latest version plugin*/
+    id("com.github.ben-manes.versions") version "0.41.0"
+    application
 }
 
 group = "hexlet.code"
@@ -17,3 +20,7 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
+application{
+    mainClass="hexlet.code.App"
+}
+
