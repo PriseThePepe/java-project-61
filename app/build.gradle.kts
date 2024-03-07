@@ -1,8 +1,9 @@
 plugins {
     id("java")
     id("se.patrikerdes.use-latest-versions") version "0.2.18"/*gradle use latest version plugin*/
-    id("com.github.ben-manes.versions") version "0.41.0"
+    id("com.github.ben-manes.versions") version "0.51.0"
     application
+    checkstyle
 }
 
 group = "hexlet.code"
@@ -13,7 +14,7 @@ repositories {
 }
 
 dependencies {
-    testImplementation(platform("org.junit:junit-bom:5.10.1"))
+    testImplementation(platform("org.junit:junit-bom:5.10.2"))
     testImplementation("org.junit.jupiter:junit-jupiter")
 }
 
@@ -23,5 +24,6 @@ tasks.test {
 application{
     mainClass="hexlet.code.App"
 }
+
 
 
