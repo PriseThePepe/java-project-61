@@ -3,24 +3,26 @@ package hexlet.code.games;
 import java.util.Random;
 import java.util.Scanner;
 
-public class GCD {
+public class GCDGame {
     public void GCDgame(String cliName){
         Random random = new Random();
         Scanner scanner=new Scanner(System.in);
         int correctCount = 0;
         while (correctCount < 3) {
-            int rnNumbOne = random.nextInt(0, 100);
-            int rnNumbTwo = random.nextInt(0, 100);
-            int max=0;
+            int rnNumbOne = random.nextInt(1, 100);
+            int rnNumbTwo = random.nextInt(1, 100);
+            int max;
             System.out.println("Question: " + rnNumbOne +" "+ rnNumbTwo);
-            int answer=scanner.nextInt();
-            while(rnNumbOne!=0&&rnNumbTwo!=0){
-                if(rnNumbOne>rnNumbTwo){
-                    rnNumbOne=rnNumbOne%rnNumbTwo;
-                }else {rnNumbTwo=rnNumbOne%rnNumbTwo;}
-              max=rnNumbOne+rnNumbTwo;
+            String answer =scanner.next();
+            int numAnswer=0;
+            if(answer.matches("-?\\d+")){
+                numAnswer = Integer.parseInt(answer);
             }
-            if(answer==max){
+            while(rnNumbOne!=0 && rnNumbTwo!=0){
+                if(rnNumbOne>rnNumbTwo)rnNumbOne=rnNumbOne%rnNumbTwo;
+                else rnNumbTwo=rnNumbTwo%rnNumbOne;
+            }max= rnNumbOne+rnNumbTwo;
+            if(numAnswer==max){
                 correctCount++;
                 System.out.println("Correct!");
             }else {
