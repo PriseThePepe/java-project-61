@@ -24,6 +24,15 @@ tasks.test {
 application{
     mainClass="hexlet.code.App"
 }
+tasks.getByName("run", JavaExec::class) {
+    standardInput = System.`in`
+}
+java
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(20)
+    }
+}
 
 
 
