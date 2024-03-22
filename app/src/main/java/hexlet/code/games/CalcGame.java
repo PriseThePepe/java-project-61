@@ -15,7 +15,7 @@ public class CalcGame {
             int rnNumbOne = random.nextInt(10, 20);
             int rnNumbTwo = random.nextInt(0, 10);
             if (rnOperation >= 0 && rnOperation <= 33) {
-                System.out.println("Question: " + rnNumbOne + "-" + rnNumbTwo);
+                System.out.println("Question: " + rnNumbOne + " - " + rnNumbTwo);
                 System.out.print("Your answer: ");
                 String answer = scanner.next();
                 int numAnswer = 0;
@@ -33,7 +33,7 @@ public class CalcGame {
                 }
             }
             if (rnOperation > 67) {
-                System.out.println("Question: " + rnNumbOne + "*" + rnNumbTwo);
+                System.out.println("Question: " + rnNumbOne + " * " + rnNumbTwo);
                 System.out.print("Your answer: ");
                 String answer = scanner.next();
                 int numAnswer = 0;
@@ -51,7 +51,7 @@ public class CalcGame {
                 }
             }
             if (rnOperation >= 34 && rnOperation <= 67) {
-                System.out.println("Question: " + rnNumbOne + "+" + rnNumbTwo);
+                System.out.println("Question: " + rnNumbOne + " + " + rnNumbTwo);
                 System.out.print("Your answer: ");
                 String answer = scanner.next();
                 int numAnswer = 0;
