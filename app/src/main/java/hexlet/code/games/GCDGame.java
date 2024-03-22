@@ -31,7 +31,7 @@ public class GCDGame {
                 System.out.println("Correct!");
             } else {
                 System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + max + "`");
-                System.out.println("Let`s try again, " + cliName);
+                System.out.println("Let`s try again, " + cliName + "!");
                 break;
             }
 

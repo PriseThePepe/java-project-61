@@ -64,7 +64,7 @@ public class CalcGame {
                 } else {
                     int correctAns = rnNumbOne + rnNumbTwo;
                     System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAns + "`");
-                    System.out.println("Let`s try again, " + cliName);
+                    System.out.println("Let`s try again, " + cliName + "!");
                     break;
                 }
 

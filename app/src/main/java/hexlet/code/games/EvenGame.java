@@ -21,7 +21,7 @@ public class EvenGame {
                 String correctAnswer = (rnNumb % 2 == 0) ? "yes" : "no";
                 System.out.printf("'%s' is a wrong answer ;(. Correct answer was '%s'.", answer, correctAnswer);
                 System.out.println();
-                System.out.println("Let`s try again, " + cliName);
+                System.out.println("Let`s try again, " + cliName + "!");
                 break;
             }
             if (correctCount == 3) {
