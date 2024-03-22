@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class PrimeGame {
-    public void primeGame(String cliName) {
+    public final void primeGame(String cliName) {
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
         int correctCount = 0;

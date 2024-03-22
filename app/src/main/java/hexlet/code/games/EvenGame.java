@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class EvenGame {
 
-    public void evenGame(String cliName) {
+    public final void evenGame(String cliName) {
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
         int correctCount = 0;

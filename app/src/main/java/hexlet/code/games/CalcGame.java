@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class CalcGame {
 
-    public void calcGame(String cliName) {
+    public final void calcGame(String cliName) {
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
         int correctCount = 0;

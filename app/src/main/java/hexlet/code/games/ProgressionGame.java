@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class ProgressionGame {
-    public void progressionGame(String cliName) {
+    public final void progressionGame(String cliName) {
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
         int correctCount = 0;

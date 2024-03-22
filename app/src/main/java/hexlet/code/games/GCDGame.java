@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class GCDGame {
-    public void gcdGame(String cliName) {
+    public final void gcdGame(String cliName) {
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
         int correctCount = 0;
