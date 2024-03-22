@@ -17,6 +17,7 @@ public class ProgressionGame {
                 array[i + 1] = array[i] + rnProgres;
             }
             int hiddenNumb = random.nextInt(array.length);
+            System.out.print("Question: ");
             for (int i = 0; i < array.length; i++) {
                 if (i == hiddenNumb) {
                     System.out.print(".." + " ");
