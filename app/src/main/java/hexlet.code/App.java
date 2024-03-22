@@ -7,13 +7,13 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
 
-        final int greet=1;
-        final int even=2;
-        final int calc=3;
-        final int gcd=4;
-        final int progression=5;
-        final int prime=6;
-        final int exit=0;
+        final int greet = 1;
+        final int even = 2;
+        final int calc = 3;
+        final int gcd = 4;
+        final int progression = 5;
+        final int prime = 6;
+        final int exit = 0;
 
         System.out.println("Welcome to the Brain Games!");
         System.out.println("Please enter the game number and press Enter.");
