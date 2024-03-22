@@ -8,10 +8,13 @@ public class EvenGame {
     public final void evenGame(String cliName) {
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
-        final int gamesToWin = 3;
         int correctCount = 0;
+
+        final int gamesToWin = 3;
+        final int boundRnNum = 100;
+
         while (correctCount < gamesToWin) {
-            int rnNumb = random.nextInt(1, 100);
+            int rnNumb = random.nextInt(1, boundRnNum);
             System.out.println("Question: " + rnNumb);
             System.out.print("Your answer: ");
             String answer = scanner.next();

@@ -31,13 +31,13 @@ public class App {
             case (3):
                 Engine.playCalcGame();
                 break;
-            case(4):
+            case (4):
                 Engine.playGCDGame();
                 break;
-            case(5):
+            case (5):
                 Engine.playProgression();
                 break;
-            case(6):
+            case (6):
                 Engine.playPrime();
                 break;
             default:  break;

@@ -12,11 +12,12 @@ public class ProgressionGame {
         final int gamesToWin = 3;
         final int boundRnProgression = 50;
         final int boundRnNum = 50;
+        final int boundRnValues=10;
 
         while (correctCount < gamesToWin) {
             int rnProgression = random.nextInt(0, boundRnProgression);
             int rnNumb = random.nextInt(0, boundRnNum);
-            int[] array = new int[10];
+            int[] array = new int[boundRnValues];
             array[0] = rnNumb;
             for (int i = 0; i < array.length - 1; i++) {
                 array[i + 1] = array[i] + rnProgression;
