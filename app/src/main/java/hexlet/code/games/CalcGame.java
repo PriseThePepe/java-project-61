@@ -9,17 +9,18 @@ public class CalcGame {
     public final void calcGame(String cliName) {
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
-        int gamesToWin = 3;
         int correctCount = 0;
-        
-        int boundRnOp = 100;
-        int boundRnNumOne = 20;
-        int originRnNumOne = 10;
-        int boundRnNumTwo = 10;
 
-        int percentageBoundMinus = 33;
-        int percentageBoundMul = 67;
-        int percentageOriginPlus = 34;
+        final int gamesToWin = 3;
+
+        final int boundRnOp = 100;
+        final int boundRnNumOne = 20;
+        final int originRnNumOne = 10;
+        final int boundRnNumTwo = 10;
+
+        final int percentageBoundMinus = 33;
+        final int percentageBoundMul = 67;
+        final int percentageOriginPlus = 34;
 
         while (correctCount < gamesToWin) {
             int rnOperation = random.nextInt(0, boundRnOp);

@@ -8,7 +8,7 @@ public class EvenGame {
     public final void evenGame(String cliName) {
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
-        int gamesToWin = 3;
+        final int gamesToWin = 3;
         int correctCount = 0;
         while (correctCount < gamesToWin) {
             int rnNumb = random.nextInt(1, 100);

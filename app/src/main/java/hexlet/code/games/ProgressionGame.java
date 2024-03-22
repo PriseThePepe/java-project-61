@@ -7,10 +7,12 @@ public class ProgressionGame {
     public final void progressionGame(String cliName) {
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
-        int gamesToWin = 3;
         int correctCount = 0;
-        int boundRnProgression = 50;
-        int boundRnNum=50;
+
+        final int gamesToWin = 3;
+        final int boundRnProgression = 50;
+        final int boundRnNum = 50;
+
         while (correctCount < gamesToWin) {
             int rnProgression = random.nextInt(0, boundRnProgression);
             int rnNumb = random.nextInt(0, boundRnNum);
