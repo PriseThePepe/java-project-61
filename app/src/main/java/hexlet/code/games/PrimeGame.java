@@ -11,6 +11,7 @@ public class PrimeGame {
 
         final int gamesToWin = 3;
         final int  boundRn = 1000;
+
         while (correctCount < gamesToWin) {
             int rnNumb = random.nextInt(1, boundRn);
             boolean prime = false;
@@ -22,7 +23,7 @@ public class PrimeGame {
             } else {
                 prime = true;
             }
-            for (int i = 2; i * i < rnNumb; i++) {
+            for (int i = 2; i * i <= rnNumb; i++) {
                 if (rnNumb % i == 0) {
                     prime = false;
                     break;
