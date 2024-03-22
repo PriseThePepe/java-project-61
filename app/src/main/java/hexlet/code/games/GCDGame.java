@@ -7,10 +7,13 @@ public class GCDGame {
     public final void gcdGame(String cliName) {
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
+        int gamesToWin = 3;
         int correctCount = 0;
-        while (correctCount < 3) {
-            int rnNumbOne = random.nextInt(1, 100);
-            int rnNumbTwo = random.nextInt(1, 100);
+        int boundRnNumOne=100;
+        int boundRnNumTwo=100;
+        while (correctCount < gamesToWin) {
+            int rnNumbOne = random.nextInt(1, boundRnNumOne);
+            int rnNumbTwo = random.nextInt(1, boundRnNumTwo);
             int max;
             System.out.println("Question: " + rnNumbOne + " " + rnNumbTwo);
             System.out.print("Your answer: ");

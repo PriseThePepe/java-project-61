@@ -7,9 +7,11 @@ public class PrimeGame {
     public final void primeGame(String cliName) {
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
+        int gamesToWin = 3;
         int correctCount = 0;
-        while (correctCount < 3) {
-            int rnNumb = random.nextInt(1, 1000);
+        int boundRn=1000;
+        while (correctCount < gamesToWin) {
+            int rnNumb = random.nextInt(1, boundRn);
             boolean prime = false;
             System.out.println("Question: " + rnNumb);
             System.out.print("Your answer: ");
@@ -36,7 +38,7 @@ public class PrimeGame {
                 System.out.println("Let's try again, " + cliName + "!");
                 break;
             }
-            if (correctCount == 3) {
+            if (correctCount == gamesToWin) {
                 System.out.println("Congratulations, " + cliName + "!");
 
             }

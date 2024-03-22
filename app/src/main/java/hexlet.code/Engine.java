@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 
 public class Engine {
-    public static String cliName;
+    private static String cliName;
     public static void saluteCli() {
         System.out.println("Welcome to the Brain Games!");
         System.out.println("May I have your name?");

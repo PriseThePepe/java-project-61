@@ -7,14 +7,17 @@ public class ProgressionGame {
     public final void progressionGame(String cliName) {
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
+        int gamesToWin = 3;
         int correctCount = 0;
-        while (correctCount < 3) {
-            int rnProgres = random.nextInt(0, 50);
-            int rnNumb = random.nextInt(0, 50);
+        int boundRnProgression=50;
+        int boundRnNum=50;
+        while (correctCount < gamesToWin) {
+            int rnProgression = random.nextInt(0, boundRnProgression);
+            int rnNumb = random.nextInt(0, boundRnNum);
             int[] array = new int[10];
             array[0] = rnNumb;
             for (int i = 0; i < array.length - 1; i++) {
-                array[i + 1] = array[i] + rnProgres;
+                array[i + 1] = array[i] + rnProgression;
             }
             int hiddenNumb = random.nextInt(array.length);
             System.out.print("Question: ");
@@ -44,7 +47,7 @@ public class ProgressionGame {
             }
 
         }
-        if (correctCount == 3) {
+        if (correctCount == gamesToWin) {
             System.out.println("Congratulations, " + cliName + "!");
         }
 

@@ -9,11 +9,16 @@ public class CalcGame {
     public final void calcGame(String cliName) {
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
+        int gamesToWin = 3;
         int correctCount = 0;
-        while (correctCount < 3) {
-            int rnOperation = random.nextInt(0, 100);
-            int rnNumbOne = random.nextInt(10, 20);
-            int rnNumbTwo = random.nextInt(0, 10);
+        int boundRnOp=100;
+        int boundRnNumOne=20;
+        int originRnNumOne=10;
+        int boundRnNumTwo=10;
+        while (correctCount < gamesToWin) {
+            int rnOperation = random.nextInt(0, boundRnOp);
+            int rnNumbOne = random.nextInt(originRnNumOne, boundRnNumOne);
+            int rnNumbTwo = random.nextInt(0, boundRnNumTwo);
             if (rnOperation >= 0 && rnOperation <= 33) {
                 System.out.println("Question: " + rnNumbOne + " - " + rnNumbTwo);
                 System.out.print("Your answer: ");
@@ -69,7 +74,7 @@ public class CalcGame {
                 }
 
             }
-            if (correctCount == 3) {
+            if (correctCount == gamesToWin) {
                 System.out.println("Congratulations, " + cliName + "!");
             }
 

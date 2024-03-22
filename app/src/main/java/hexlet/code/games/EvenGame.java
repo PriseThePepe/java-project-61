@@ -8,8 +8,9 @@ public class EvenGame {
     public final void evenGame(String cliName) {
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
+        int gamesToWin = 3;
         int correctCount = 0;
-        while (correctCount < 3) {
+        while (correctCount < gamesToWin) {
             int rnNumb = random.nextInt(1, 100);
             System.out.println("Question: " + rnNumb);
             System.out.print("Your answer: ");
@@ -24,7 +25,7 @@ public class EvenGame {
                 System.out.println("Let's try again, " + cliName + "!");
                 break;
             }
-            if (correctCount == 3) {
+            if (correctCount == gamesToWin) {
                 System.out.println("Congratulations, " + cliName + "!");
             }
         }
