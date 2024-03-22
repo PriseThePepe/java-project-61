@@ -24,6 +24,9 @@ public class EvenGame {
                 System.out.println("Let`s try again, " + cliName);
                 break;
             }
+            if (correctCount == 3) {
+                System.out.println("Congratulations, " + cliName + "!");
+            }
         }
     }
 }
