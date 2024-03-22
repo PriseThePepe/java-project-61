@@ -12,7 +12,7 @@ public class ProgressionGame {
         final int gamesToWin = 3;
         final int boundRnProgression = 50;
         final int boundRnNum = 50;
-        final int boundRnValues=10;
+        final int boundRnValues = 10;
 
         while (correctCount < gamesToWin) {
             int rnProgression = random.nextInt(0, boundRnProgression);
