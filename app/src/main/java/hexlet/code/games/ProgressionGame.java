@@ -9,7 +9,7 @@ public class ProgressionGame {
         Scanner scanner = new Scanner(System.in);
         int gamesToWin = 3;
         int correctCount = 0;
-        int boundRnProgression=50;
+        int boundRnProgression = 50;
         int boundRnNum=50;
         while (correctCount < gamesToWin) {
             int rnProgression = random.nextInt(0, boundRnProgression);

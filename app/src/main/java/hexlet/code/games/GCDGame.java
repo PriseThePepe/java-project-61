@@ -9,8 +9,8 @@ public class GCDGame {
         Scanner scanner = new Scanner(System.in);
         int gamesToWin = 3;
         int correctCount = 0;
-        int boundRnNumOne=100;
-        int boundRnNumTwo=100;
+        int boundRnNumOne = 100;
+        int boundRnNumTwo = 100;
         while (correctCount < gamesToWin) {
             int rnNumbOne = random.nextInt(1, boundRnNumOne);
             int rnNumbTwo = random.nextInt(1, boundRnNumTwo);
@@ -39,7 +39,7 @@ public class GCDGame {
             }
 
         }
-        if (correctCount == 3) {
+        if (correctCount == gamesToWin) {
             System.out.println("Congratulations, " + cliName + "!");
         }
 

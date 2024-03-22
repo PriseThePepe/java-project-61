@@ -9,7 +9,7 @@ public class PrimeGame {
         Scanner scanner = new Scanner(System.in);
         int gamesToWin = 3;
         int correctCount = 0;
-        int boundRn=1000;
+        int boundRn = 1000;
         while (correctCount < gamesToWin) {
             int rnNumb = random.nextInt(1, boundRn);
             boolean prime = false;
