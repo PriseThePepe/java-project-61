@@ -36,7 +36,7 @@ public class PrimeGame {
         }
     }
 
-    public boolean isPrime(int rnNumb) {
+    public final boolean isPrime(int rnNumb) {
         if (rnNumb < 2) {
             return false;
         }
