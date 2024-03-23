@@ -4,19 +4,17 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class GCDGame {
+  private final int gamesToWin = 3;
+  private final int boundRnNumOne = 100;
+  private final int boundRnNumTwo = 100;
     public final void gcdGame(String cliName) {
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
         int correctCount = 0;
-
-        final int gamesToWin = 3;
-        final int boundRnNumOne = 100;
-        final int boundRnNumTwo = 100;
-
         while (correctCount < gamesToWin) {
             int rnNumbOne = random.nextInt(1, boundRnNumOne);
             int rnNumbTwo = random.nextInt(1, boundRnNumTwo);
-            int max;
+            int gcd=findGCD(rnNumbOne, rnNumbTwo);
             System.out.println("Question: " + rnNumbOne + " " + rnNumbTwo);
             System.out.print("Your answer: ");
             String answer = scanner.next();
@@ -24,18 +22,11 @@ public class GCDGame {
             if (answer.matches("-?\\d+")) {
                 numAnswer = Integer.parseInt(answer);
             }
-            while (rnNumbOne != 0 && rnNumbTwo != 0) {
-                if (rnNumbOne > rnNumbTwo) {
-                    rnNumbOne = rnNumbOne % rnNumbTwo;
-                } else {
-                    rnNumbTwo = rnNumbTwo % rnNumbOne;
-                }
-            } max = rnNumbOne + rnNumbTwo;
-            if (numAnswer == max) {
+            if (numAnswer == gcd) {
                 correctCount++;
                 System.out.println("Correct!");
             } else {
-                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + max + "`");
+                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + gcd + "`");
                 System.out.println("Let's try again, " + cliName + "!");
                 break;
             }
@@ -45,5 +36,15 @@ public class GCDGame {
             System.out.println("Congratulations, " + cliName + "!");
         }
 
+    }
+    public int findGCD(int rnNumberOne, int rnNumberTwo) {
+        while (rnNumberOne != 0 && rnNumberTwo != 0) {
+            if (rnNumberOne > rnNumberTwo) {
+                rnNumberOne = rnNumberOne % rnNumberTwo;
+            } else {
+                rnNumberTwo = rnNumberTwo % rnNumberOne;
+            }
+        }
+        return rnNumberOne + rnNumberTwo;
     }
 }
