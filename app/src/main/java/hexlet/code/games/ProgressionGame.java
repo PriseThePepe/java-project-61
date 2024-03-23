@@ -4,16 +4,14 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class ProgressionGame {
+    final int gamesToWin = 3;
+    final int boundRnProgression = 50;
+    final int boundRnNum = 50;
+    final int boundRnValues = 10;
     public final void progressionGame(String cliName) {
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
         int correctCount = 0;
-
-        final int gamesToWin = 3;
-        final int boundRnProgression = 50;
-        final int boundRnNum = 50;
-        final int boundRnValues = 10;
-
         while (correctCount < gamesToWin) {
             int rnProgression = random.nextInt(0, boundRnProgression);
             int rnNumb = random.nextInt(0, boundRnNum);
@@ -57,3 +55,4 @@ public class ProgressionGame {
     }
 
 }
+

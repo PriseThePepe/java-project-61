@@ -5,16 +5,14 @@ import java.util.Scanner;
 
 
 public class App {
+    public static final int EXIT = 0;
+    public static final int GREET = 1;
+    public static final int EVEN = 2;
+    public static final int CALC = 3;
+    public static final int GCD = 4;
+    public static final int PROGRESSION = 5;
+    public static final int PRIME = 6;
     public static void main(String[] args) {
-
-        final int greet = 1;
-        final int even = 2;
-        final int calc = 3;
-        final int gcd = 4;
-        final int progression = 5;
-        final int prime = 6;
-        final int exit = 0;
-
         System.out.println("Welcome to the Brain Games!");
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
@@ -28,25 +26,25 @@ public class App {
         Scanner choice = new Scanner(System.in);
         int choiceNb = Integer.parseInt(choice.next());
         switch (choiceNb) {
-            case (exit):
+            case (EXIT):
                 System.out.println("Bye-bye");
                 break;
-            case (greet):
+            case (GREET):
                 Cli.greetCli();
                 break;
-            case (even):
+            case (EVEN):
                 Engine.playEvenGame();
                 break;
-            case (calc):
+            case (CALC):
                 Engine.playCalcGame();
                 break;
-            case (gcd):
+            case (GCD):
                 Engine.playGCDGame();
                 break;
-            case (progression):
+            case (PROGRESSION):
                 Engine.playProgression();
                 break;
-            case (prime):
+            case (PRIME):
                 Engine.playPrime();
                 break;
             default:  break;

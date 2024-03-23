@@ -4,14 +4,12 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class PrimeGame {
+    final int gamesToWin = 3;
+    final int boundRn = 1000;
     public final void primeGame(String cliName) {
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
         int correctCount = 0;
-
-        final int gamesToWin = 3;
-        final int boundRn = 1000;
-
         while (correctCount < gamesToWin) {
             int rnNumb = random.nextInt(1, boundRn);
             System.out.println("Question: " + rnNumb);
