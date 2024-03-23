@@ -5,14 +5,16 @@ import java.util.Scanner;
 
 
 public class CalcGame {
-    final int gamesToWin = 3;
-    final int boundRnNumOne = 100;
-    final int boundRnNumTwo = 100;
 
     public final void calcGame(String cliName) {
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
         int correctCount = 0;
+
+        final int gamesToWin = 3;
+        final int boundRnNumOne = 100;
+        final int boundRnNumTwo = 100;
+
         while (correctCount < gamesToWin) {
             int rnNumbOne = random.nextInt(boundRnNumOne);
             int rnNumbTwo = random.nextInt(boundRnNumTwo);

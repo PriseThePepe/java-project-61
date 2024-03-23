@@ -4,14 +4,15 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class GCDGame {
-    final int gamesToWin = 3;
-
-    final int boundRnNumOne = 100;
-    final int boundRnNumTwo = 100;
     public final void gcdGame(String cliName) {
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
         int correctCount = 0;
+
+        final int gamesToWin = 3;
+        final int boundRnNumOne = 100;
+        final int boundRnNumTwo = 100;
+
         while (correctCount < gamesToWin) {
             int rnNumbOne = random.nextInt(1, boundRnNumOne);
             int rnNumbTwo = random.nextInt(1, boundRnNumTwo);
