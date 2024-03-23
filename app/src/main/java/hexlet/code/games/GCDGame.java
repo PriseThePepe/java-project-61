@@ -14,7 +14,7 @@ public class GCDGame {
         while (correctCount < gamesToWin) {
             int rnNumbOne = random.nextInt(1, boundRnNumOne);
             int rnNumbTwo = random.nextInt(1, boundRnNumTwo);
-            int gcd=findGCD(rnNumbOne, rnNumbTwo);
+            int gcd = findGCD(rnNumbOne, rnNumbTwo);
             System.out.println("Question: " + rnNumbOne + " " + rnNumbTwo);
             System.out.print("Your answer: ");
             String answer = scanner.next();
@@ -37,7 +37,7 @@ public class GCDGame {
         }
 
     }
-    public int findGCD(int rnNumberOne, int rnNumberTwo) {
+    public final int findGCD(int rnNumberOne, int rnNumberTwo) {
         while (rnNumberOne != 0 && rnNumberTwo != 0) {
             if (rnNumberOne > rnNumberTwo) {
                 rnNumberOne = rnNumberOne % rnNumberTwo;

@@ -13,9 +13,9 @@ public class ProgressionGame {
         Scanner scanner = new Scanner(System.in);
         int correctCount = 0;
         while (correctCount < gamesToWin) {
-            int[]array=generateProgression(random.nextInt(boundRnNum), random.nextInt(boundRnProgression) );
+            int[]array = generateProgression(random.nextInt(boundRnNum), random.nextInt(boundRnProgression));
             int hiddenNumb = random.nextInt(array.length);
-            displayProgressionWithHiddenNumber(array,hiddenNumb);
+            displayProgressionWithHiddenNumber(array, hiddenNumb);
             System.out.print("Your answer: ");
             String answer = scanner.next();
             int numAnswer = 0;
@@ -39,15 +39,15 @@ public class ProgressionGame {
         }
 
     }
-    public int[] generateProgression(int rnNumb,int rnProgression){
-        int [] array = new int [boundRnValues];
-        array[0]=rnNumb;
+    public final int[]  generateProgression(int rnNumb, int rnProgression) {
+        int[] array = new int[boundRnValues];
+        array[0] = rnNumb;
         for (int i = 0; i < array.length - 1; i++) {
             array[i + 1] = array[i] + rnProgression;
         }
         return array;
     }
-    public void displayProgressionWithHiddenNumber(int[]array,int hiddenIndex) {
+    public final void displayProgressionWithHiddenNumber(int[]array, int hiddenIndex) {
         System.out.print("Question: ");
         for (int i = 0; i < array.length; i++) {
             if (i == hiddenIndex) {
