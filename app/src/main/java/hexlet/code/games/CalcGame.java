@@ -22,7 +22,7 @@ public class CalcGame {
             char[] operations = {'+', '-', '*'};
             char operation = operations[random.nextInt(operations.length)];
 
-            System.out.println("Question " + rnNumbOne + " " + operation + " " + rnNumbTwo);
+            System.out.println("Question: " + rnNumbOne + " " + operation + " " + rnNumbTwo);
             System.out.print("Your answer: ");
             String cliAnswer = scanner.next();
             String correctAnswer = calcResult(rnNumbOne, rnNumbTwo, operation, cliAnswer);
