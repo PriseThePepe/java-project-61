@@ -10,31 +10,20 @@ public class PrimeGame {
         int correctCount = 0;
 
         final int gamesToWin = 3;
-        final int  boundRn = 1000;
+        final int boundRn = 1000;
 
         while (correctCount < gamesToWin) {
             int rnNumb = random.nextInt(1, boundRn);
-            boolean prime = false;
             System.out.println("Question: " + rnNumb);
             System.out.print("Your answer: ");
             String answer = scanner.next();
-            if (rnNumb < 2) {
-                prime = false;
-            } else {
-                prime = true;
-            }
-            for (int i = 2; i * i <= rnNumb; i++) {
-                if (rnNumb % i == 0) {
-                    prime = false;
-                    break;
-                }
-            }
+            boolean isPrime = isPrime(rnNumb);
 
-            if (answer.equals("yes") && prime || answer.equals("no") && !prime) {
+            if (answer.equals("yes") && isPrime || answer.equals("no") && !isPrime) {
                 System.out.println("Correct!");
                 correctCount++;
             } else {
-                String correctAnswer = prime ? "yes" : "no";
+                String correctAnswer  = isPrime ? "yes" : "no";
                 System.out.printf("'%s' is a wrong answer ;(. Correct answer was '%s'.", answer, correctAnswer);
                 System.out.println();
                 System.out.println("Let's try again, " + cliName + "!");
@@ -45,6 +34,18 @@ public class PrimeGame {
 
             }
         }
+    }
+
+    public boolean isPrime(int rnNumb) {
+        if (rnNumb < 2) {
+            return false;
+        }
+        for (int i = 2; i * i <= rnNumb; i++) {
+            if (rnNumb % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
 
