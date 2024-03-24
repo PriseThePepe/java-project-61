@@ -25,6 +25,7 @@ public class App {
         System.out.print("Your choice: ");
         Scanner choice = new Scanner(System.in);
         int choiceNb = Integer.parseInt(choice.next());
+
         switch (choiceNb) {
             case (EXIT):
                 System.out.println("Bye-bye");
@@ -47,10 +48,8 @@ public class App {
             case (PRIME):
                 Engine.playPrime();
                 break;
-            default:  break;
-
-
-
+            default:
+                break;
         }
     }
 }

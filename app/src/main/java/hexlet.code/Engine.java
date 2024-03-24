@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 public class Engine {
     private static final int GAMESTOWIN = 3;
-    private static String cliName;
+    public static String cliName;
     public static void saluteCli() {
         System.out.println("Welcome to the Brain Games!");
         System.out.println("May I have your name?");
@@ -35,7 +35,7 @@ public class Engine {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         EvenGame game = new EvenGame();
         game.evenGame(cliName);
-        }
+    }
 
     public static void playGCDGame() {
         saluteCli();
