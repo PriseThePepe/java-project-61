@@ -34,28 +34,10 @@ public class Engine {
         saluteCli();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         EvenGame game = new EvenGame();
-
-        int rnNumb = EvenGame.rnNumb;
-        String cliAnswer = EvenGame.answer;
-
-        while (EvenGame.correctCount < GAMESTOWIN) {
-            game.evenGame(cliName);
-            if (rnNumb % 2 == 0 && cliAnswer.equals("yes") || rnNumb % 2 != 0 && cliAnswer.equals("no")) {
-                System.out.println("Correct!");
-                EvenGame.correctCount++;
-            } else {
-                String correctAnswer = (rnNumb % 2 == 0) ? "yes" : "no";
-                System.out.printf("'%s' is a wrong answer ;(. Correct answer was '%s'.", cliAnswer, correctAnswer);
-                System.out.println();
-                System.out.println("Let's try again, " + cliName + "!");
-                break;
-            }
-            if (EvenGame.correctCount == GAMESTOWIN) {
-                System.out.println("Congratulations, " + cliName + "!");
-
-            }
+        game.evenGame(cliName);
         }
-    }
+    
+
     public static void playGCDGame() {
         saluteCli();
         System.out.println("Find the greatest common divisor of given numbers.");
