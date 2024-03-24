@@ -48,7 +48,7 @@ public class PrimeGame {
             String correctAnswer = isPrime ? "yes" : "no";
             System.out.printf("'%s' is a wrong answer ;(. Correct answer was '%s'.\n", answer, correctAnswer);
             System.out.println("Let's try again, " + Engine.cliName + "!");
-
+            System.exit(0);
         }
     }
 }
