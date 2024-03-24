@@ -36,7 +36,6 @@ public class Engine {
         EvenGame game = new EvenGame();
         game.evenGame(cliName);
         }
-    
 
     public static void playGCDGame() {
         saluteCli();
