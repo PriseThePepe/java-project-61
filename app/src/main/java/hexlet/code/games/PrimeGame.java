@@ -5,6 +5,7 @@ import hexlet.code.Engine;
 import java.util.Random;
 import java.util.Scanner;
 
+
 public class PrimeGame {
     public final void primeGame(String cliName) {
         Random random = new Random();
@@ -42,12 +43,12 @@ public class PrimeGame {
     }
 
     public final void checkAnswer(String answer, boolean isPrime) {
-        if (answer.equalsIgnoreCase("yes") == isPrime) {
+        if (answer.equals("yes") && isPrime || answer.equals("no") && !isPrime) {
             System.out.println("Correct!");
         } else {
             String correctAnswer = isPrime ? "yes" : "no";
             System.out.printf("'%s' is a wrong answer ;(. Correct answer was '%s'.\n", answer, correctAnswer);
-            System.out.println("Let's try again, " + Engine.cliName + "!");
+            System.out.println("Let's try again, " + Engine.getCliName() + "!");
             System.exit(0);
         }
     }

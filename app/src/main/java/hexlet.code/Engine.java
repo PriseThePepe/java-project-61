@@ -13,7 +13,13 @@ import java.util.Scanner;
 
 public class Engine {
     private static final int GAMESTOWIN = 3;
-    public static String cliName;
+
+    public static String getCliName() {
+        return cliName;
+    }
+
+    private static String cliName;
+
     public static void saluteCli() {
         System.out.println("Welcome to the Brain Games!");
         System.out.println("May I have your name?");
