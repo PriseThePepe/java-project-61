@@ -16,18 +16,9 @@ public class GCDGame {
             int rnNumbOne = random.nextInt(1, boundRnNumOne);
             int rnNumbTwo = random.nextInt(1, boundRnNumTwo);
             int gcd = findGCD(rnNumbOne, rnNumbTwo);
-            System.out.println("Question: " + rnNumbOne + " " + rnNumbTwo);
-            System.out.print("Your answer: ");
-            String answer = scanner.next();
-            int numAnswer = 0;
-            if (answer.matches("-?\\d+")) {
-                numAnswer = Integer.parseInt(answer);
-            }
-            if (numAnswer == gcd) {
+            if (playRound(cliName, scanner, rnNumbOne, rnNumbTwo, gcd)) {
                 correctCount++;
-                System.out.println("Correct!");
             } else {
-                handleIncorrectAnswer(cliName, answer, gcd);
                 break;
             }
 
@@ -35,7 +26,6 @@ public class GCDGame {
         if (correctCount == gamesToWin) {
             System.out.println("Congratulations, " + cliName + "!");
         }
-
     }
 
     public final int findGCD(int rnNumberOne, int rnNumberTwo) {
@@ -47,6 +37,22 @@ public class GCDGame {
             }
         }
         return rnNumberOne + rnNumberTwo;
+    }
+    private boolean playRound(String cliName, Scanner scanner, int rnNumbOne, int rnNumbTwo, int gcd) {
+        System.out.println("Question: " + rnNumbOne + " " + rnNumbTwo);
+        System.out.print("Your answer: ");
+        String answer = scanner.next();
+        int numAnswer = 0;
+        if (answer.matches("-?\\d+")) {
+            numAnswer = Integer.parseInt(answer);
+        }
+        if (numAnswer == gcd) {
+            System.out.println("Correct!");
+            return true; // Correct answer
+        } else {
+            handleIncorrectAnswer(cliName, answer, gcd);
+            return false; // Incorrect answer
+        }
     }
 
     private void handleIncorrectAnswer(String cliName, String answer, int gcd) {

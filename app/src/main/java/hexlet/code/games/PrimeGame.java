@@ -7,6 +7,8 @@ import java.util.Scanner;
 
 
 public class PrimeGame {
+
+    private final int boundRn = 1000;
     public final void primeGame(String cliName) {
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
@@ -36,7 +38,6 @@ public class PrimeGame {
     }
 
     public final boolean playRound(Random random, Scanner scanner) {
-        final int boundRn = 1000;
         int rnNumb = random.nextInt(1, boundRn);
         System.out.println("Question: " + rnNumb);
         System.out.print("Your answer: ");
