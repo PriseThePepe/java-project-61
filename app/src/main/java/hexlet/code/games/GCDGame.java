@@ -7,6 +7,7 @@ public class GCDGame {
     private final int gamesToWin = 3;
     private final int boundRnNumOne = 100;
     private final int boundRnNumTwo = 100;
+
     public final void gcdGame(String cliName) {
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
@@ -26,8 +27,7 @@ public class GCDGame {
                 correctCount++;
                 System.out.println("Correct!");
             } else {
-                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + gcd + "`");
-                System.out.println("Let's try again, " + cliName + "!");
+                handleIncorrectAnswer(cliName, answer, gcd);
                 break;
             }
 
@@ -37,6 +37,7 @@ public class GCDGame {
         }
 
     }
+
     public final int findGCD(int rnNumberOne, int rnNumberTwo) {
         while (rnNumberOne != 0 && rnNumberTwo != 0) {
             if (rnNumberOne > rnNumberTwo) {
@@ -46,5 +47,10 @@ public class GCDGame {
             }
         }
         return rnNumberOne + rnNumberTwo;
+    }
+
+    private void handleIncorrectAnswer(String cliName, String answer, int gcd) {
+        System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + gcd + "`");
+        System.out.println("Let's try again, " + cliName + "!");
     }
 }

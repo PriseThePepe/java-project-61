@@ -30,11 +30,9 @@ public class CalcGame {
                 System.out.println("Correct!");
                 correctCount++;
             } else {
-                System.out.printf("'%s' is a wrong answer ;(. Correct answer was '%s'.", cliAnswer, correctAnswer);
-                System.out.println("Let's try again, " + cliName + "!");
+                handleIncorrectAnswer(cliName, cliAnswer, correctAnswer);
                 break;
             }
-
             if (correctCount == gamesToWin) {
                 System.out.println("Congratulations, " + cliName + "!");
             }
@@ -56,7 +54,12 @@ public class CalcGame {
 
         }
     }
+    private void handleIncorrectAnswer(String cliName, String cliAnswer, String correctAnswer) {
+        System.out.printf("'%s' is a wrong answer ;(. Correct answer was '%s'.%n", cliAnswer, correctAnswer);
+        System.out.println("Let's try again, " + cliName + "!");
+    }
 }
+
 
 
 

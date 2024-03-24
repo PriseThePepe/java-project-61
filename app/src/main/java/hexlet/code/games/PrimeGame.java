@@ -12,14 +12,17 @@ public class PrimeGame {
         Scanner scanner = new Scanner(System.in);
         int correctCount = 0;
         final int gamesToWin = 3;
-
         while (correctCount < gamesToWin) {
-            playRound(random, scanner);
-            correctCount++;
+            if (playRound(random, scanner)) {
+                correctCount++;
+            } else {
+                break;
+            }
         }
-        System.out.println("Congratulations, " + cliName + "!");
+        if (correctCount == gamesToWin) {
+            System.out.println("Congratulations, " + cliName + "!");
+        }
     }
-
     public final boolean isPrime(int rnNumb) {
         if (rnNumb < 2) {
             return false;
@@ -32,33 +35,25 @@ public class PrimeGame {
         return true;
     }
 
-    public final void playRound(Random random, Scanner scanner) {
+    public final boolean playRound(Random random, Scanner scanner) {
         final int boundRn = 1000;
         int rnNumb = random.nextInt(1, boundRn);
         System.out.println("Question: " + rnNumb);
         System.out.print("Your answer: ");
         String answer = scanner.next();
         boolean isPrime = isPrime(rnNumb);
-        checkAnswer(answer, isPrime);
-    }
-
-    public final void checkAnswer(String answer, boolean isPrime) {
-        if (isAnswerCorrect(answer, isPrime)) {
-            System.out.println("Correct!");
+        if (answer.equals("yes") && isPrime || answer.equals("no") && !isPrime) {
+            System.out.println("Correct");
+            return true; // Correct answer
         } else {
             handleIncorrectAnswer(answer, isPrime);
+            return false; // Incorrect answer
         }
     }
-
-    private boolean isAnswerCorrect(String answer, boolean isPrime) {
-        return (answer.equals("yes") && isPrime) || (answer.equals("no") && !isPrime);
-    }
-
     private void handleIncorrectAnswer(String answer, boolean isPrime) {
         String correctAnswer = isPrime ? "yes" : "no";
         System.out.printf("'%s' is a wrong answer ;(. Correct answer was '%s'.\n", answer, correctAnswer);
         System.out.println("Let's try again, " + Engine.getCliName() + "!");
-        System.exit(0);
     }
 }
 

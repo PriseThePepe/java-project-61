@@ -11,24 +11,36 @@ public class EvenGame {
         int correctCount = 0;
         final int gamesToWin = 3;
         final int boundRnNum = 100;
+
         while (correctCount < gamesToWin) {
-            int rnNumb = random.nextInt(1, boundRnNum);
-            System.out.println("Question: " + rnNumb);
-            System.out.print("Your answer: ");
-            String answer = scanner.next();
-            if (rnNumb % 2 == 0 && answer.equals("yes") || rnNumb % 2 != 0 && answer.equals("no")) {
-                System.out.println("Correct!");
+            int rnNumb = random.nextInt(boundRnNum);
+            if (playRound(cliName, scanner, rnNumb)) {
                 correctCount++;
             } else {
-                String correctAnswer = (rnNumb % 2 == 0) ? "yes" : "no";
-                System.out.printf("'%s' is a wrong answer ;(. Correct answer was '%s'.", answer, correctAnswer);
-                System.out.println();
-                System.out.println("Let's try again, " + cliName + "!");
                 break;
             }
-            if (correctCount == gamesToWin) {
-                System.out.println("Congratulations, " + cliName + "!");
-            }
+        }
+        if (correctCount == gamesToWin) {
+            System.out.println("Congratulations, " + cliName + "!");
         }
     }
+
+    private boolean playRound(String cliName, Scanner scanner, int rnNumb) {
+        System.out.println("Question: " + rnNumb);
+        System.out.print("Your answer: ");
+        String answer = scanner.next();
+        if ((rnNumb % 2 == 0 && answer.equals("yes")) || (rnNumb % 2 != 0 && answer.equals("no"))) {
+            System.out.println("Correct!");
+            return true; // Correct answer
+        } else {
+            handleIncorrectAnswer(cliName, rnNumb, answer);
+            return false; // IncorrectAnswer
+        }
+    }
+    private void handleIncorrectAnswer(String cliName, int rnNumb, String answer) {
+        String correctAnswer = (rnNumb % 2 == 0) ? "yes" : "no";
+        System.out.printf("'%s' is a wrong answer ;(. Correct answer was '%s'.%n", answer, correctAnswer);
+        System.out.println("Let's try again, " + cliName + "!");
+    }
 }
+

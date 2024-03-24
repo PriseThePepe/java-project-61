@@ -17,19 +17,16 @@ public class ProgressionGame {
             int hiddenNumb = random.nextInt(array.length);
             displayProgressionWithHiddenNumber(array, hiddenNumb);
             System.out.print("Your answer: ");
-            String answer = scanner.next();
+            String cliAnswer = scanner.next();
             int numAnswer = 0;
-            if (answer.matches("-?\\d+")) {
-                numAnswer = Integer.parseInt(answer);
+            if (cliAnswer.matches("-?\\d+")) {
+                numAnswer = Integer.parseInt(cliAnswer);
             }
             if (numAnswer == array[hiddenNumb]) {
                 System.out.println("Correct!");
                 correctCount++;
             } else {
-                String correctAnswer = String.valueOf(array[hiddenNumb]);
-                System.out.printf("'%s' is a wrong answer ;(. Correct answer was '%s'.", answer, correctAnswer);
-                System.out.println();
-                System.out.println("Let's try again, " + cliName + "!");
+                handleIncorrectAnswer(cliName, cliAnswer, array, hiddenNumb);
                 break;
             }
 
@@ -58,6 +55,12 @@ public class ProgressionGame {
         }
         System.out.println();
 
+    }
+    private void handleIncorrectAnswer(String cliName, String cliAnswer, int[]array, int hiddenNumb) {
+        String correctAnswer = String.valueOf(array[hiddenNumb]);
+        System.out.printf("'%s' is a wrong answer ;(. Correct answer was '%s'.", cliAnswer, correctAnswer);
+        System.out.println();
+        System.out.println("Let's try again, " + cliName + "!");
     }
 
 }
