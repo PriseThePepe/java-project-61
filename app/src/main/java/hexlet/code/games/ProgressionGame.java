@@ -16,17 +16,9 @@ public class ProgressionGame {
             int[]array = generateProgression(random.nextInt(boundRnNum), random.nextInt(boundRnProgression));
             int hiddenNumb = random.nextInt(array.length);
             displayProgressionWithHiddenNumber(array, hiddenNumb);
-            System.out.print("Your answer: ");
-            String cliAnswer = scanner.next();
-            int numAnswer = 0;
-            if (cliAnswer.matches("-?\\d+")) {
-                numAnswer = Integer.parseInt(cliAnswer);
-            }
-            if (numAnswer == array[hiddenNumb]) {
-                System.out.println("Correct!");
+            if (playRound(cliName, scanner, array, hiddenNumb)) {
                 correctCount++;
             } else {
-                handleIncorrectAnswer(cliName, cliAnswer, array, hiddenNumb);
                 break;
             }
 
@@ -56,6 +48,22 @@ public class ProgressionGame {
         System.out.println();
 
     }
+    private boolean playRound(String cliName, Scanner scanner, int[]array, int hiddenNumb) {
+        System.out.print("Your answer: ");
+        String cliAnswer = scanner.next();
+        int numAnswer = 0;
+        if (cliAnswer.matches("-?\\d+")) {
+            numAnswer = Integer.parseInt(cliAnswer);
+        }
+        if (numAnswer == array[hiddenNumb]) {
+            System.out.println("Correct!");
+            return true; // Correct answer
+        } else {
+            handleIncorrectAnswer(cliName, cliAnswer, array, hiddenNumb);
+            return false; // Incorrect answer
+        }
+    }
+
     private void handleIncorrectAnswer(String cliName, String cliAnswer, int[]array, int hiddenNumb) {
         String correctAnswer = String.valueOf(array[hiddenNumb]);
         System.out.printf("'%s' is a wrong answer ;(. Correct answer was '%s'.", cliAnswer, correctAnswer);
