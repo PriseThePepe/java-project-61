@@ -43,14 +43,22 @@ public class PrimeGame {
     }
 
     public final void checkAnswer(String answer, boolean isPrime) {
-        if (answer.equals("yes") && isPrime || answer.equals("no") && !isPrime) {
+        if (isAnswerCorrect(answer, isPrime)) {
             System.out.println("Correct!");
         } else {
-            String correctAnswer = isPrime ? "yes" : "no";
-            System.out.printf("'%s' is a wrong answer ;(. Correct answer was '%s'.\n", answer, correctAnswer);
-            System.out.println("Let's try again, " + Engine.getCliName() + "!");
-            System.exit(0);
+            handleIncorrectAnswer(answer,isPrime);
         }
+    }
+
+    private boolean isAnswerCorrect(String answer, boolean isPrime) {
+        return (answer.equals("yes") && isPrime) || (answer.equals("no") && !isPrime);
+    }
+
+    private void handleIncorrectAnswer(String answer, boolean isPrime) {
+        String correctAnswer = isPrime ? "yes" : "no";
+        System.out.printf("'%s' is a wrong answer ;(. Correct answer was '%s'.\n", answer, correctAnswer);
+        System.out.println("Let's try again, " + Engine.getCliName() + "!");
+        System.exit(0);
     }
 }
 
