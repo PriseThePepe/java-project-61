@@ -46,7 +46,7 @@ public class PrimeGame {
         if (isAnswerCorrect(answer, isPrime)) {
             System.out.println("Correct!");
         } else {
-            handleIncorrectAnswer(answer,isPrime);
+            handleIncorrectAnswer(answer, isPrime);
         }
     }
 
