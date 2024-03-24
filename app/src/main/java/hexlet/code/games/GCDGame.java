@@ -4,9 +4,9 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class GCDGame {
-  private final int gamesToWin = 3;
-  private final int boundRnNumOne = 100;
-  private final int boundRnNumTwo = 100;
+    private final int gamesToWin = 3;
+    private final int boundRnNumOne = 100;
+    private final int boundRnNumTwo = 100;
     public final void gcdGame(String cliName) {
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
