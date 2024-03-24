@@ -39,7 +39,6 @@ public class PrimeGame {
         String answer = scanner.next();
         boolean isPrime = isPrime(rnNumb);
         checkAnswer(answer, isPrime);
-
     }
 
     public final void checkAnswer(String answer, boolean isPrime) {
