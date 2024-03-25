@@ -1,7 +1,11 @@
 build:
-	./build
+	./gradlew build
 
-run-dist: build
+install:
+	./gradlew installDist
+
+
+run-dist:
 	./build/install/app/bin/app
 
 
