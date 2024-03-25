@@ -5,7 +5,7 @@
 ### Maintainability Badge:
 <a href="https://codeclimate.com/github/PriseThePepe/java-project-61/maintainability"><img src="https://api.codeclimate.com/v1/badges/449c2da54d6b5400228b/maintainability" /></a>
 #### Description:
-**"Mind Games"** - a set of five console games built on the principle of popular brain-training mobile applications.
+**"Brain Games"** - a set of five console games built on the principle of popular brain-training mobile applications.
 Each game presents questions that require correct answers.
 The games include:
 * Calculator: Arithmetic expressions that need to be evaluated.
