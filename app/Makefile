@@ -1,4 +1,5 @@
 build:
+	gradle
 	./gradlew build
 
 install:
