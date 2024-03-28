@@ -49,6 +49,7 @@ public class App {
                 Engine.playPrime();
                 break;
             default:
+                System.err.println("Error: Invalid choice. Please enter a number between 0 and 6");
                 break;
         }
     }
