@@ -1,6 +1,12 @@
 package hexlet.code;
 
 
+import hexlet.code.games.ProgressionGame;
+import hexlet.code.games.PrimeGame;
+import hexlet.code.games.CalcGame;
+import hexlet.code.games.GCDGame;
+import hexlet.code.games.EvenGame;
+
 import java.util.Scanner;
 
 
@@ -34,19 +40,19 @@ public class App {
                 Cli.greetCli();
                 break;
             case (EVEN):
-                Engine.playEvenGame();
+                EvenGame.playEvenGame();
                 break;
             case (CALC):
-                Engine.playCalcGame();
+                CalcGame.playCalcGame();
                 break;
             case (GCD):
-                Engine.playGCDGame();
+                GCDGame.playGCDGame();
                 break;
             case (PROGRESSION):
-                Engine.playProgression();
+                ProgressionGame.playProgressionGame();
                 break;
             case (PRIME):
-                Engine.playPrime();
+                PrimeGame.playPrimeGame();
                 break;
             default:
                 System.err.println("Error: Invalid choice. Please enter a number between 0 and 6");

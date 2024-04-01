@@ -1,75 +1,43 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
+import java.util.Arrays;
 import java.util.Random;
-import java.util.Scanner;
+
 
 public class ProgressionGame {
-    private final int gamesToWin = 3;
-    private final int boundRnProgression = 50;
-    private final int boundRnNum = 50;
-    private final int boundRnValues = 10;
-    public final void progressionGame(String cliName) {
+    private static final int GAMES_TO_WIN = 3;
+    private static final int BOUND_RN_PROGRESSION = 50;
+    private static final int BOUND_RN_NUMB = 50;
+    private static final int BOUND_RN_VALUES = 10;
+
+    private static final String MAIN_QUESTION = "What number is missing in the progression?";
+    private static  String[][] questionsAnswerPairs = new String[GAMES_TO_WIN][2];
+    private static final int QUESTION_ROW_NUMBER = 0;
+    private static final int ANSWER_ROW_NUMBER = 1;
+
+    public static  void playProgressionGame() {
         Random random = new Random();
-        Scanner scanner = new Scanner(System.in);
-        int correctCount = 0;
-        while (correctCount < gamesToWin) {
-            int[]array = generateProgression(random.nextInt(boundRnNum), random.nextInt(boundRnProgression));
-            int hiddenNumb = random.nextInt(array.length);
-            displayProgressionWithHiddenNumber(array, hiddenNumb);
-            if (playRound(cliName, scanner, array, hiddenNumb)) {
-                correctCount++;
-            } else {
-                break;
+        for (int i = 0; i < GAMES_TO_WIN; i++) {
+            String[] progressionArray = new String[BOUND_RN_VALUES];
+            int hiddenNumb = random.nextInt(progressionArray.length);
+            int rnNumb = random.nextInt(BOUND_RN_NUMB);
+            int rnNumbProgression = random.nextInt(BOUND_RN_PROGRESSION);
+            Arrays.fill(progressionArray, "");
+            questionsAnswerPairs[i][QUESTION_ROW_NUMBER] = "";
+            for (int j = 0; j < BOUND_RN_VALUES; j++) {
+                if (j != hiddenNumb) {
+                    progressionArray[j] = String.valueOf(rnNumb);
+                } else {
+                    progressionArray[j] = "..";
+                    questionsAnswerPairs[i][ANSWER_ROW_NUMBER] = String.valueOf(rnNumb);
+                }
+                rnNumb = rnNumb + rnNumbProgression;
             }
-
+            questionsAnswerPairs[i][QUESTION_ROW_NUMBER] = String.join(" ", progressionArray);
         }
-        if (correctCount == gamesToWin) {
-            System.out.println("Congratulations, " + cliName + "!");
-        }
-
+        Engine.runGame(MAIN_QUESTION, questionsAnswerPairs);
     }
-    public final int[]  generateProgression(int rnNumb, int rnProgression) {
-        int[] array = new int[boundRnValues];
-        array[0] = rnNumb;
-        for (int i = 0; i < array.length - 1; i++) {
-            array[i + 1] = array[i] + rnProgression;
-        }
-        return array;
-    }
-    public final void displayProgressionWithHiddenNumber(int[]array, int hiddenIndex) {
-        System.out.print("Question: ");
-        for (int i = 0; i < array.length; i++) {
-            if (i == hiddenIndex) {
-                System.out.print(".." + " ");
-            } else {
-                System.out.print(array[i] + " ");
-            }
-        }
-        System.out.println();
-
-    }
-    private boolean playRound(String cliName, Scanner scanner, int[]array, int hiddenNumb) {
-        System.out.print("Your answer: ");
-        String cliAnswer = scanner.next();
-        int numAnswer = 0;
-        if (cliAnswer.matches("-?\\d+")) {
-            numAnswer = Integer.parseInt(cliAnswer);
-        }
-        if (numAnswer == array[hiddenNumb]) {
-            System.out.println("Correct!");
-            return true; // Correct answer
-        } else {
-            handleIncorrectAnswer(cliName, cliAnswer, array, hiddenNumb);
-            return false; // Incorrect answer
-        }
-    }
-
-    private void handleIncorrectAnswer(String cliName, String cliAnswer, int[]array, int hiddenNumb) {
-        String correctAnswer = String.valueOf(array[hiddenNumb]);
-        System.out.printf("'%s' is a wrong answer ;(. Correct answer was '%s'.", cliAnswer, correctAnswer);
-        System.out.println();
-        System.out.println("Let's try again, " + cliName + "!");
-    }
-
 }
 

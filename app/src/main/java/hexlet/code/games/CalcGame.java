@@ -1,64 +1,51 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
 import java.util.Random;
-import java.util.Scanner;
 
 
 public class CalcGame {
 
-    private final int gamesToWin = 3;
-    private final int boundRnNumOne = 100;
-    private final int boundRnNumTwo = 100;
+    private static final int GAMES_TO_WIN = 3;
+    private static final int BOUND_RN_NUM_ONE = 100;
+    private static final int BOUND_RN_NUM_TWO = 100;
 
-    public final void calcGame(String cliName) {
+    private static final String MAIN_QUESTION = "What is the result of the expression?";
+    private static  String[][] questionsAnswerPairs = new String[GAMES_TO_WIN][2];
+
+    private static final int QUESTION_ROW_NUMBER = 0;
+    private static final int ANSWER_ROW_NUMBER = 1;
+
+    public static void playCalcGame() {
         Random random = new Random();
-        Scanner scanner = new Scanner(System.in);
-        int correctCount = 0;
-        while (correctCount < gamesToWin) {
-            int rnNumbOne = random.nextInt(boundRnNumOne);
-            int rnNumbTwo = random.nextInt(boundRnNumTwo);
+        for (int i = 0; i < GAMES_TO_WIN; i++) {
+            int rnNumbOne = random.nextInt(BOUND_RN_NUM_ONE);
+            int rnNumbTwo = random.nextInt(BOUND_RN_NUM_TWO);
             char[] operations = {'+', '-', '*'};
             char operation = operations[random.nextInt(operations.length)];
-            if (playRound(cliName, scanner, rnNumbOne, rnNumbTwo, operation)) {
-                correctCount++;
-            } else {
-                break;
+
+            switch (operation) {
+                case '+':
+                    questionsAnswerPairs[i][ANSWER_ROW_NUMBER] = String.valueOf(rnNumbOne + rnNumbTwo);
+                    break;
+                case '-':
+                    questionsAnswerPairs[i][ANSWER_ROW_NUMBER] = String.valueOf(rnNumbOne - rnNumbTwo);
+                    break;
+                default:
+                    questionsAnswerPairs[i][ANSWER_ROW_NUMBER] = String.valueOf(rnNumbOne * rnNumbTwo);
+                    break;
             }
+            questionsAnswerPairs[i][QUESTION_ROW_NUMBER] = rnNumbOne + " " + operation + " " + rnNumbTwo;
         }
-        if (correctCount == gamesToWin) {
-            System.out.println("Congratulations, " + cliName + "!");
-        }
-    }
-    public final String calcResult(int rnNumbOne, int rnNumbTwo, char operation, String cliAnswer) {
-        switch (operation) {
-            case '+':
-                return String.valueOf(rnNumbOne + rnNumbTwo);
-            case '-':
-                return String.valueOf(rnNumbOne - rnNumbTwo);
-            case '*':
-                return  String.valueOf(rnNumbOne * rnNumbTwo);
-            default:
-                return cliAnswer;
-        }
-    }
-    private boolean playRound(String cliName, Scanner scanner, int rnNumbOne, int rnNumbTwo, char operation) {
-        System.out.println("Question: " + rnNumbOne + " " + operation + " " + rnNumbTwo);
-        System.out.print("Your answer: ");
-        String cliAnswer = scanner.next();
-        String correctAnswer = calcResult(rnNumbOne, rnNumbTwo, operation, cliAnswer);
-        if (cliAnswer.equals(correctAnswer)) {
-            System.out.println("Correct!");
-            return true;
-        } else {
-            handleIncorrectAnswer(cliName, cliAnswer, correctAnswer);
-            return false;
-        }
-    }
-    private void handleIncorrectAnswer(String cliName, String cliAnswer, String correctAnswer) {
-        System.out.printf("'%s' is a wrong answer ;(. Correct answer was '%s'.%n", cliAnswer, correctAnswer);
-        System.out.println("Let's try again, " + cliName + "!");
+        Engine.runGame(MAIN_QUESTION, questionsAnswerPairs);
     }
 }
+
+
+
+
+
 
 
 

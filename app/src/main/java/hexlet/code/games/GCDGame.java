@@ -1,34 +1,33 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
 import java.util.Random;
-import java.util.Scanner;
 
 public class GCDGame {
-    private final int gamesToWin = 3;
-    private final int boundRnNumOne = 100;
-    private final int boundRnNumTwo = 100;
+    private static final int GAMES_TO_WIN = 3;
+    private static final int BOUND_RN_NUM_ONE = 100;
+    private static final int BOUND_RN_NUM_TWO = 100;
 
-    public final void gcdGame(String cliName) {
+    private static final String MAIN_QUESTION = "Find the greatest common divisor of given numbers.";
+    private static  String[][] questionsAnswerPairs = new String[GAMES_TO_WIN][2];
+
+    private static final int QUESTION_ROW_NUMBER = 0;
+    private static final int ANSWER_ROW_NUMBER = 1;
+
+
+    public static  void playGCDGame() {
         Random random = new Random();
-        Scanner scanner = new Scanner(System.in);
-        int correctCount = 0;
-        while (correctCount < gamesToWin) {
-            int rnNumbOne = random.nextInt(1, boundRnNumOne);
-            int rnNumbTwo = random.nextInt(1, boundRnNumTwo);
-            int gcd = findGCD(rnNumbOne, rnNumbTwo);
-            if (playRound(cliName, scanner, rnNumbOne, rnNumbTwo, gcd)) {
-                correctCount++;
-            } else {
-                break;
-            }
-
+        for (int i = 0; i < GAMES_TO_WIN; i++) {
+            int rnNumbOne = random.nextInt(1, BOUND_RN_NUM_ONE);
+            int rnNumbTwo = random.nextInt(1, BOUND_RN_NUM_TWO);
+            questionsAnswerPairs[i][QUESTION_ROW_NUMBER] = rnNumbOne + " " + rnNumbTwo;
+            questionsAnswerPairs[i][ANSWER_ROW_NUMBER] = String.valueOf(findGCD(rnNumbOne, rnNumbTwo));
         }
-        if (correctCount == gamesToWin) {
-            System.out.println("Congratulations, " + cliName + "!");
-        }
+        Engine.runGame(MAIN_QUESTION, questionsAnswerPairs);
     }
 
-    public final int findGCD(int rnNumberOne, int rnNumberTwo) {
+    public static int findGCD(int rnNumberOne, int rnNumberTwo) {
         while (rnNumberOne != 0 && rnNumberTwo != 0) {
             if (rnNumberOne > rnNumberTwo) {
                 rnNumberOne = rnNumberOne % rnNumberTwo;
@@ -38,25 +37,5 @@ public class GCDGame {
         }
         return rnNumberOne + rnNumberTwo;
     }
-    private boolean playRound(String cliName, Scanner scanner, int rnNumbOne, int rnNumbTwo, int gcd) {
-        System.out.println("Question: " + rnNumbOne + " " + rnNumbTwo);
-        System.out.print("Your answer: ");
-        String answer = scanner.next();
-        int numAnswer = 0;
-        if (answer.matches("-?\\d+")) {
-            numAnswer = Integer.parseInt(answer);
-        }
-        if (numAnswer == gcd) {
-            System.out.println("Correct!");
-            return true; // Correct answer
-        } else {
-            handleIncorrectAnswer(cliName, answer, gcd);
-            return false; // Incorrect answer
-        }
-    }
-
-    private void handleIncorrectAnswer(String cliName, String answer, int gcd) {
-        System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + gcd + "`");
-        System.out.println("Let's try again, " + cliName + "!");
-    }
 }
+

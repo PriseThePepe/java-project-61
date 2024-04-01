@@ -1,46 +1,29 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
 import java.util.Random;
-import java.util.Scanner;
 
 public class EvenGame {
 
-    private final int gamesToWin = 3;
-    private final int boundRnNum = 100;
+    private static final int GAMES_TO_WIN = 3;
+    private static final int BOUND_RN_NUMB = 100;
+    private static final String MAIN_QUESTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    private static  String[][] questionsAnswerPairs = new String[GAMES_TO_WIN][2];
 
-    public final void evenGame(String cliName) {
+    private static final int QUESTION_ROW_NUMBER = 0;
+    private static final int ANSWER_ROW_NUMBER = 1;
+    public static void playEvenGame() {
         Random random = new Random();
-        Scanner scanner = new Scanner(System.in);
-        int correctCount = 0;
-        while (correctCount < gamesToWin) {
-            int rnNumb = random.nextInt(boundRnNum);
-            if (playRound(cliName, scanner, rnNumb)) {
-                correctCount++;
-            } else {
-                break;
-            }
+        for (int i = 0; i < GAMES_TO_WIN; i++) {
+            int questionNumb = random.nextInt(BOUND_RN_NUMB);
+            questionsAnswerPairs[i][QUESTION_ROW_NUMBER] = String.valueOf(questionNumb);
+            questionsAnswerPairs[i][ANSWER_ROW_NUMBER] = isEven(questionNumb) ? "yes" : "no";
         }
-        if (correctCount == gamesToWin) {
-            System.out.println("Congratulations, " + cliName + "!");
-        }
+        Engine.runGame(MAIN_QUESTION, questionsAnswerPairs);
+    }
+    private static boolean isEven(int questionNumber) {
+        return questionNumber % 2 == 0;
     }
 
-    private boolean playRound(String cliName, Scanner scanner, int rnNumb) {
-        System.out.println("Question: " + rnNumb);
-        System.out.print("Your answer: ");
-        String answer = scanner.next();
-        if ((rnNumb % 2 == 0 && answer.equals("yes")) || (rnNumb % 2 != 0 && answer.equals("no"))) {
-            System.out.println("Correct!");
-            return true; // Correct answer
-        } else {
-            handleIncorrectAnswer(cliName, rnNumb, answer);
-            return false; // IncorrectAnswer
-        }
-    }
-    private void handleIncorrectAnswer(String cliName, int rnNumb, String answer) {
-        String correctAnswer = (rnNumb % 2 == 0) ? "yes" : "no";
-        System.out.printf("'%s' is a wrong answer ;(. Correct answer was '%s'.%n", answer, correctAnswer);
-        System.out.println("Let's try again, " + cliName + "!");
-    }
 }
-

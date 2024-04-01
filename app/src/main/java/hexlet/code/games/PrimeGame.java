@@ -3,29 +3,30 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 import java.util.Random;
-import java.util.Scanner;
 
 
 public class PrimeGame {
 
-    private final int boundRn = 1000;
-    public final void primeGame(String cliName) {
+    private static final int GAMES_TO_WIN = 3;
+    private static final int BOUND_RN_NUMB = 1000;
+
+    private static final String MAIN_QUESTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static String[][] questionsAnswerPairs = new String[GAMES_TO_WIN][2];
+
+    private static final int QUESTION_ROW_NUMBER = 0;
+    private static final int ANSWER_ROW_NUMBER = 1;
+
+    public static void playPrimeGame() {
         Random random = new Random();
-        Scanner scanner = new Scanner(System.in);
-        int correctCount = 0;
-        final int gamesToWin = 3;
-        while (correctCount < gamesToWin) {
-            if (playRound(random, scanner)) {
-                correctCount++;
-            } else {
-                break;
-            }
+        for (int i = 0; i < GAMES_TO_WIN; i++) {
+            int rnNumb = random.nextInt(BOUND_RN_NUMB);
+            questionsAnswerPairs[i][QUESTION_ROW_NUMBER] = String.valueOf(rnNumb);
+            questionsAnswerPairs[i][ANSWER_ROW_NUMBER] = isPrime(rnNumb) ? "yes" : "no";
         }
-        if (correctCount == gamesToWin) {
-            System.out.println("Congratulations, " + cliName + "!");
-        }
+        Engine.runGame(MAIN_QUESTION, questionsAnswerPairs);
     }
-    public final boolean isPrime(int rnNumb) {
+
+    public static  boolean isPrime(int rnNumb) {
         if (rnNumb < 2) {
             return false;
         }
@@ -36,25 +37,7 @@ public class PrimeGame {
         }
         return true;
     }
-
-    public final boolean playRound(Random random, Scanner scanner) {
-        int rnNumb = random.nextInt(1, boundRn);
-        System.out.println("Question: " + rnNumb);
-        System.out.print("Your answer: ");
-        String answer = scanner.next();
-        boolean isPrime = isPrime(rnNumb);
-        if (answer.equals("yes") && isPrime || answer.equals("no") && !isPrime) {
-            System.out.println("Correct");
-            return true; // Correct answer
-        } else {
-            handleIncorrectAnswer(answer, isPrime);
-            return false; // Incorrect answer
-        }
-    }
-    private void handleIncorrectAnswer(String answer, boolean isPrime) {
-        String correctAnswer = isPrime ? "yes" : "no";
-        System.out.printf("'%s' is a wrong answer ;(. Correct answer was '%s'.\n", answer, correctAnswer);
-        System.out.println("Let's try again, " + Engine.getCliName() + "!");
-    }
 }
+
+
 
