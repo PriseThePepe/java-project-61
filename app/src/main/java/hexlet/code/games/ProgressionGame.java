@@ -4,7 +4,6 @@ import hexlet.code.Engine;
 
 import java.util.Arrays;
 import java.util.Random;
-import java.util.Scanner;
 
 public class ProgressionGame {
     private static final int GAMES_TO_WIN = 3;
@@ -13,7 +12,6 @@ public class ProgressionGame {
     private static final int BOUND_RN_VALUES = 10;
 
     private static final String MAIN_QUESTION = "What number is missing in the progression?";
-    private static final String[][] questionsAnswerPairs = new String[GAMES_TO_WIN][2];
     private static final int QUESTION_ROW_NUMBER = 0;
     private static final int ANSWER_ROW_NUMBER = 1;
 
