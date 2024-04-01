@@ -25,5 +25,4 @@ public class EvenGame {
     private static boolean isEven(int questionNumber) {
         return questionNumber % 2 == 0;
     }
-
 }
