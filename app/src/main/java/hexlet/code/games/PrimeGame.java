@@ -17,13 +17,17 @@ public class PrimeGame {
     private static final int ANSWER_ROW_NUMBER = 1;
 
     public static void playPrimeGame() {
-        Random random = new Random();
         for (int i = 0; i < GAMES_TO_WIN; i++) {
-            int rnNumb = random.nextInt(BOUND_RN_NUMB);
+            int rnNumb = generateRnNumbers();
             questionsAnswerPairs[i][QUESTION_ROW_NUMBER] = String.valueOf(rnNumb);
             questionsAnswerPairs[i][ANSWER_ROW_NUMBER] = isPrime(rnNumb) ? "yes" : "no";
         }
         Engine.runGame(MAIN_QUESTION, questionsAnswerPairs);
+    }
+    public static int generateRnNumbers() {
+        Random random = new Random();
+        int rnNumb = random.nextInt(BOUND_RN_NUMB);
+        return rnNumb;
     }
 
     public static  boolean isPrime(int rnNumb) {
