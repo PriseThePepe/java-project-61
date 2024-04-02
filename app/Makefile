@@ -1,5 +1,8 @@
+
+.PHONY:	build	install	run-dist
+
+
 build:
-	gradle
 	./gradlew build
 
 install:
