@@ -18,6 +18,7 @@ public class App {
     public static final int GCD = 4;
     public static final int PROGRESSION = 5;
     public static final int PRIME = 6;
+
     public static void main(String[] args) {
         System.out.println("Welcome to the Brain Games!");
         System.out.println("Please enter the game number and press Enter.");
@@ -30,7 +31,13 @@ public class App {
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
         Scanner choice = new Scanner(System.in);
-        int choiceNb = Integer.parseInt(choice.next());
+        String choiceStr = choice.next();
+        int choiceNb = 0;
+        if (choiceStr.matches("-?\\d+")) {
+            choiceNb = Integer.parseInt(choiceStr);
+        } else {
+            handleIncorrectAnswer(choiceStr);
+        }
         switch (choiceNb) {
             case (EXIT):
                 System.out.println("Bye-bye");
@@ -54,8 +61,12 @@ public class App {
                 PrimeGame.playPrimeGame();
                 break;
             default:
-                System.err.println("Error: Invalid choice. Please enter a number between 0 and 6");
+                handleIncorrectAnswer(choiceStr);
                 break;
         }
+    }
+
+    private static void handleIncorrectAnswer(String choiceStr) {
+        System.err.println("Error: Invalid choice " + choiceStr + " Please enter a number between 0 and 6");
     }
 }
