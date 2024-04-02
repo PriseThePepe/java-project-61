@@ -1,5 +1,4 @@
 
-.PHONY:	build	install	run-dist
 
 
 build:
