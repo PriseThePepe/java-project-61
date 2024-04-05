@@ -6,8 +6,7 @@ import java.util.Scanner;
 public class Engine {
 
 
-    private static final int QUESTION_ROW_NUMBER = 0;
-    private static final int ANSWER_ROW_NUMBER = 1;
+
 
 
     public static void runGame(String mainQuestion, String[][] questionsAnswerPairs) {
@@ -18,8 +17,8 @@ public class Engine {
         System.out.println("Hello, " + cliName + "!");
         System.out.println(mainQuestion);
         for (String[] questionsAnswerPair : questionsAnswerPairs) {
-            String correctAnswer = questionsAnswerPair[ANSWER_ROW_NUMBER];
-            System.out.println("Question: " + questionsAnswerPair[QUESTION_ROW_NUMBER]);
+            String correctAnswer = questionsAnswerPair[1];
+            System.out.println("Question: " + questionsAnswerPair[0]);
             System.out.print("Your answer: ");
             String cliAnswer = scanner.next();
             boolean isAnswerCorrect = cliAnswer.equals(correctAnswer);

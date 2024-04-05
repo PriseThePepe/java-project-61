@@ -30,43 +30,42 @@ public class App {
         System.out.println("6 - Prime");
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
-        Scanner choice = new Scanner(System.in);
-        String choiceStr = choice.next();
-        int choiceNb = 0;
-        if (choiceStr.matches("-?\\d+")) {
-            choiceNb = Integer.parseInt(choiceStr);
+        Scanner scanner = new Scanner(System.in);
+        if (scanner.hasNextInt()) {
+            int choiceNumber = scanner.nextInt();
+            switch (choiceNumber) {
+                case (EXIT):
+                    System.out.println("Bye-bye");
+                    break;
+                case (GREET):
+                    Cli.greetCli();
+                    break;
+                case (EVEN):
+                    EvenGame.playEvenGame();
+                    break;
+                case (CALC):
+                    CalcGame.playCalcGame();
+                    break;
+                case (GCD):
+                    GCDGame.playGCDGame();
+                    break;
+                case (PROGRESSION):
+                    ProgressionGame.playProgressionGame();
+                    break;
+                case (PRIME):
+                    PrimeGame.playPrimeGame();
+                    break;
+                default:
+                    System.err.println("Error: Invalid choice "
+                                        +
+                                        choiceNumber
+                                        +
+                                        " Please enter a number between 0 and 6");
+                    break;
+            }
         } else {
-            handleIncorrectAnswer(choiceStr);
+            System.err.println("Error: Invalid choice. Please enter a number between 0 and 6");
         }
-        switch (choiceNb) {
-            case (EXIT):
-                System.out.println("Bye-bye");
-                break;
-            case (GREET):
-                Cli.greetCli();
-                break;
-            case (EVEN):
-                EvenGame.playEvenGame();
-                break;
-            case (CALC):
-                CalcGame.playCalcGame();
-                break;
-            case (GCD):
-                GCDGame.playGCDGame();
-                break;
-            case (PROGRESSION):
-                ProgressionGame.playProgressionGame();
-                break;
-            case (PRIME):
-                PrimeGame.playPrimeGame();
-                break;
-            default:
-                handleIncorrectAnswer(choiceStr);
-                break;
-        }
-    }
-
-    private static void handleIncorrectAnswer(String choiceStr) {
-        System.err.println("Error: Invalid choice " + choiceStr + " Please enter a number between 0 and 6");
+        scanner.close();
     }
 }
