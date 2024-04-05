@@ -11,8 +11,7 @@ public class GCDGame {
 
     private static final String MAIN_QUESTION = "Find the greatest common divisor of given numbers.";
 
-    private static final int QUESTION_ROW_NUMBER = 0;
-    private static final int ANSWER_ROW_NUMBER = 1;
+
 
 
     public static  void playGCDGame() {
@@ -20,8 +19,8 @@ public class GCDGame {
         for (int i = 0; i < GAMES_TO_WIN; i++) {
             int randomNumbOne = Utils.generateRandomNumberInRange(1, BOUND_RANDOM_NUMBER_ONE);
             int randomNumbTwo = Utils.generateRandomNumberInRange(1, BOUND_RANDOM_NUMBER_TWO);
-            questionsAnswerPairs[i][QUESTION_ROW_NUMBER] = randomNumbOne + " " + randomNumbTwo;
-            questionsAnswerPairs[i][ANSWER_ROW_NUMBER] = String.valueOf(findGCD(randomNumbOne, randomNumbTwo));
+            questionsAnswerPairs[i][0] = randomNumbOne + " " + randomNumbTwo;
+            questionsAnswerPairs[i][1] = String.valueOf(findGCD(randomNumbOne, randomNumbTwo));
         }
         Engine.runGame(MAIN_QUESTION, questionsAnswerPairs);
     }

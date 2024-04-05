@@ -13,8 +13,7 @@ public class ProgressionGame {
     private static final int PROGRESSION_LENGTH = 10;
 
     private static final String MAIN_QUESTION = "What number is missing in the progression?";
-    private static final int QUESTION_ROW_NUMBER = 0;
-    private static final int ANSWER_ROW_NUMBER = 1;
+
 
     public static void playProgressionGame() {
         String[][] questionsAnswerPairs = generateQuestionAnswerPairs();
@@ -30,10 +29,12 @@ public class ProgressionGame {
             int length = PROGRESSION_LENGTH;
 
             String[] progressionArray = generateRandomProgressionArray(startNumber, step, length);
+            String[] questionArray = progressionArray.clone();
             int hiddenNumberIndex = Utils.generateRandomNumber(length);
+            questionArray[hiddenNumberIndex] = "..";
 
-            questionsAnswerPairs[i][QUESTION_ROW_NUMBER] = formatQuestion(progressionArray, hiddenNumberIndex);
-            questionsAnswerPairs[i][ANSWER_ROW_NUMBER] = String.valueOf(progressionArray[hiddenNumberIndex]);
+            questionsAnswerPairs[i][0] = String.join(" ", questionArray);
+            questionsAnswerPairs[i][1] = String.valueOf(progressionArray[hiddenNumberIndex]);
         }
 
         return questionsAnswerPairs;
@@ -47,10 +48,5 @@ public class ProgressionGame {
             progressionNumber = progressionNumber + step;
         }
         return progressionArray;
-    }
-    private static String formatQuestion(String[] progressionArray, int hiddenNumberIndex) {
-        String[] questionArray = progressionArray.clone();
-        questionArray[hiddenNumberIndex] = "..";
-        return String.join(" ", questionArray);
     }
 }

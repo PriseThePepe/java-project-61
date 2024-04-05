@@ -13,35 +13,42 @@ public class CalcGame {
 
     private static final String MAIN_QUESTION = "What is the result of the expression?";
 
-    private static final int QUESTION_ROW_NUMBER = 0;
-    private static final int ANSWER_ROW_NUMBER = 1;
+
 
     public static void playCalcGame() {
         String[][] questionsAnswerPairs = new String[GAMES_TO_WIN][2];
         for (int i = 0; i < GAMES_TO_WIN; i++) {
             int randomNumbOne = Utils.generateRandomNumber(BOUND_RANDOM_NUMBER_ONE);
             int randomNumbTwo = Utils.generateRandomNumber(BOUND_RANDOM_NUMBER_TWO);
-            char[] operations = {'+', '-', '*'};
-            char operation = operations[Utils.generateRandomNumber(operations.length)];
+            char operation = generateRandomOperation();
 
-            switch (operation) {
-                case '+':
-                    questionsAnswerPairs[i][ANSWER_ROW_NUMBER] = String.valueOf(randomNumbOne + randomNumbTwo);
-                    break;
-                case '-':
-                    questionsAnswerPairs[i][ANSWER_ROW_NUMBER] = String.valueOf(randomNumbOne - randomNumbTwo);
-                    break;
-                case '*':
-                    questionsAnswerPairs[i][ANSWER_ROW_NUMBER] = String.valueOf(randomNumbOne * randomNumbTwo);
-                    break;
-                default:
-                    throw new RuntimeException("Unknown operation: " + operation);
+            int correctAnswer = calculateCorrectAnswer(randomNumbOne, randomNumbTwo, operation);
 
+            questionsAnswerPairs[i][1] = String.valueOf(correctAnswer);
 
-            }
-            questionsAnswerPairs[i][QUESTION_ROW_NUMBER] = randomNumbOne + " " + operation + " " + randomNumbTwo;
+            questionsAnswerPairs[i][0] = randomNumbOne + " " + operation + " " + randomNumbTwo;
         }
         Engine.runGame(MAIN_QUESTION, questionsAnswerPairs);
+    }
+    public static char generateRandomOperation() {
+        char[] operations = {'+', '-', '*'};
+        return operations[Utils.generateRandomNumber(operations.length)];
+    }
+    public static int calculateCorrectAnswer(int randomNumbOne, int randomNumbTwo, char operation) {
+        switch (operation) {
+            case '+':
+                return randomNumbOne + randomNumbTwo;
+            case '-':
+                return randomNumbOne - randomNumbTwo;
+            case '*':
+                return randomNumbOne * randomNumbTwo;
+            default:
+                throw new RuntimeException("Unknown operation: " + operation);
+
+
+        }
+
+
     }
 }
 
