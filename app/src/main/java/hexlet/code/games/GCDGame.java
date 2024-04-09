@@ -3,24 +3,20 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
+import static hexlet.code.Engine.GAMES_TO_WIN;
 
 public class GCDGame {
-    private static final int GAMES_TO_WIN = 3;
     private static final int BOUND_RANDOM_NUMBER_ONE = 100;
     private static final int BOUND_RANDOM_NUMBER_TWO = 100;
-
     private static final String MAIN_QUESTION = "Find the greatest common divisor of given numbers.";
-
-
-
 
     public static  void playGCDGame() {
         String[][] questionsAnswerPairs = new String[GAMES_TO_WIN][2];
         for (int i = 0; i < GAMES_TO_WIN; i++) {
-            int randomNumbOne = Utils.generateRandomNumberInRange(1, BOUND_RANDOM_NUMBER_ONE);
-            int randomNumbTwo = Utils.generateRandomNumberInRange(1, BOUND_RANDOM_NUMBER_TWO);
-            questionsAnswerPairs[i][0] = randomNumbOne + " " + randomNumbTwo;
-            questionsAnswerPairs[i][1] = String.valueOf(findGCD(randomNumbOne, randomNumbTwo));
+            int randomNumberOne = Utils.generateRandomNumberInRange(1, BOUND_RANDOM_NUMBER_ONE);
+            int randomNumberTwo = Utils.generateRandomNumberInRange(1, BOUND_RANDOM_NUMBER_TWO);
+            questionsAnswerPairs[i][0] = randomNumberOne + " " + randomNumberTwo;
+            questionsAnswerPairs[i][1] = String.valueOf(findGCD(randomNumberOne, randomNumberTwo));
         }
         Engine.runGame(MAIN_QUESTION, questionsAnswerPairs);
     }

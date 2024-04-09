@@ -3,17 +3,15 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-
+import static hexlet.code.Engine.GAMES_TO_WIN;
 
 public class ProgressionGame {
-    private static final int GAMES_TO_WIN = 3;
     private static final int BOUND_RANDOM_INCREMENT = 50;
     private static final int BOUND_RANDOM_NUMBER = 50;
 
     private static final int PROGRESSION_LENGTH = 10;
 
     private static final String MAIN_QUESTION = "What number is missing in the progression?";
-
 
     public static void playProgressionGame() {
         String[][] questionsAnswerPairs = generateQuestionAnswerPairs();
