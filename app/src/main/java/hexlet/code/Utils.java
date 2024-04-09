@@ -1,6 +1,7 @@
 package hexlet.code;
 
 import java.util.Random;
+
 public class Utils {
     public static int generateRandomNumber(int bound) {
         Random random = new Random();

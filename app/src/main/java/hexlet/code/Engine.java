@@ -2,13 +2,8 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-
 public class Engine {
-
-
-
-
-
+    public static final int GAMES_TO_WIN = 3;
     public static void runGame(String mainQuestion, String[][] questionsAnswerPairs) {
         System.out.println("Welcome to the Brain Games!");
         System.out.println("May I have your name?");
@@ -32,7 +27,4 @@ public class Engine {
         }
         System.out.println("Congratulations, " + cliName + "!");
     }
-
-
-
 }
