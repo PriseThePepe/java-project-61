@@ -29,14 +29,14 @@ public class CalcGame {
         char[] operations = {'+', '-', '*'};
         return operations[Utils.generateRandomNumber(operations.length)];
     }
-    public static int calculateCorrectAnswer(int randomNumberOne, int randomNumberTwo, char operation) {
+    public static int calculateCorrectAnswer(int numberOne, int numberTwo, char operation) {
         switch (operation) {
             case '+':
-                return randomNumberOne + randomNumberTwo;
+                return numberOne + numberTwo;
             case '-':
-                return randomNumberOne - randomNumberTwo;
+                return numberOne - numberTwo;
             case '*':
-                return randomNumberOne * randomNumberTwo;
+                return numberOne * numberTwo;
             default:
                 throw new RuntimeException("Unknown operation: " + operation);
 

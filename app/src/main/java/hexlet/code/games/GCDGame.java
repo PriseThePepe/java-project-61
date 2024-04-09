@@ -21,15 +21,15 @@ public class GCDGame {
         Engine.runGame(MAIN_QUESTION, questionsAnswerPairs);
     }
 
-    public static int findGCD(int randomNumberOne, int randomNumberTwo) {
-        while (randomNumberOne != 0 && randomNumberTwo != 0) {
-            if (randomNumberOne > randomNumberTwo) {
-                randomNumberOne = randomNumberOne % randomNumberTwo;
+    public static int findGCD(int numberOne, int numberTwo) {
+        while (numberOne != 0 && numberTwo != 0) {
+            if (numberOne > numberTwo) {
+                numberOne = numberOne % numberTwo;
             } else {
-                randomNumberTwo = randomNumberTwo % randomNumberOne;
+                numberTwo = numberTwo % numberOne;
             }
         }
-        return randomNumberOne + randomNumberTwo;
+        return numberOne + numberTwo;
     }
 }
 

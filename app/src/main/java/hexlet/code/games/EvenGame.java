@@ -18,7 +18,7 @@ public class EvenGame {
         }
         Engine.runGame(MAIN_QUESTION, questionsAnswerPairs);
     }
-    private static boolean isEven(int questionNumber) {
-        return questionNumber % 2 == 0;
+    private static boolean isEven(int number) {
+        return number % 2 == 0;
     }
 }
