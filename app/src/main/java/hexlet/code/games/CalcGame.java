@@ -14,11 +14,11 @@ public class CalcGame {
     public static void playCalcGame() {
         String[][] questionsAnswerPairs = new String[GAMES_TO_WIN][2];
         for (int i = 0; i < GAMES_TO_WIN; i++) {
+            final char[] operations = {'+', '-', '*'};
             int randomNumberOne = Utils.generateRandomNumber(BOUND_RANDOM_NUMBER_ONE);
             int randomNumberTwo = Utils.generateRandomNumber(BOUND_RANDOM_NUMBER_TWO);
 
-            char[] operations = {'+', '-', '*'};
-            int indexOperation = Utils.generateRandomNumberInRange(0,operations.length-1);
+            int indexOperation = Utils.generateRandomNumberInRange(0, operations.length - 1);
             char operation = operations[indexOperation];
 
             int correctAnswer = calculateCorrectAnswer(randomNumberOne, randomNumberTwo, operation);
