@@ -8,6 +8,7 @@ import static hexlet.code.Engine.GAMES_TO_WIN;
 public class CalcGame {
     private static final int BOUND_RANDOM_NUMBER_ONE = 100;
     private static final int BOUND_RANDOM_NUMBER_TWO = 100;
+
     private static final String MAIN_QUESTION = "What is the result of the expression?";
 
     public static void playCalcGame() {
@@ -15,7 +16,10 @@ public class CalcGame {
         for (int i = 0; i < GAMES_TO_WIN; i++) {
             int randomNumberOne = Utils.generateRandomNumber(BOUND_RANDOM_NUMBER_ONE);
             int randomNumberTwo = Utils.generateRandomNumber(BOUND_RANDOM_NUMBER_TWO);
-            char operation = generateRandomOperation();
+
+            char[] operations = {'+', '-', '*'};
+            int indexOperation = Utils.generateRandomNumberInRange(0,operations.length-1);
+            char operation = operations[indexOperation];
 
             int correctAnswer = calculateCorrectAnswer(randomNumberOne, randomNumberTwo, operation);
 
@@ -25,10 +29,7 @@ public class CalcGame {
         }
         Engine.runGame(MAIN_QUESTION, questionsAnswerPairs);
     }
-    public static char generateRandomOperation() {
-        char[] operations = {'+', '-', '*'};
-        return operations[Utils.generateRandomNumber(operations.length)];
-    }
+
     public static int calculateCorrectAnswer(int numberOne, int numberTwo, char operation) {
         switch (operation) {
             case '+':
